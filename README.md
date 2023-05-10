@@ -1,3 +1,5 @@
+![272785200_994525774750990_5867279278358922629_n](https://github.com/EucTech/simple_shell/assets/114103964/37bf5980-a315-474b-8a63-18daf987d341)
+
 This is the simple shell program
 In this program, we are writing a UNIX command line interpreter which will:
 Display a prompt and wait for the user to type a command
