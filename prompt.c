@@ -46,3 +46,26 @@ void sig_handle(int sig)
 	(void)sig;
 	write(STDOUT_FILENO, "\nUK~$ ", 6);
 }
+
+/**
+ * not_found - This is a function that print not found when unknown
+ * command is given
+ * @input: This the input given
+ * @line: This the line
+ * @cmd: This is a pointer to the
+ * Return: NOTHING
+ */
+void not_found(char *input, int line, char **cmd)
+{
+	char *num;
+
+	PRINT(cmd[0]);
+	PRINT(": ");
+	num = _itoa(line);
+	PRINT(num);
+	free(num);
+	PRINT(": ");
+	PRINT(input);
+	PRINT(": not found\n");
+}
+

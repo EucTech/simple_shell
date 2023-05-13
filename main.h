@@ -20,6 +20,7 @@ extern char **environ;
 
 /********** MACRO **********/
 #define PRINT(c) (write(STDOUT_FILENO, c, _strlen(c)))
+#define BUFF 1024
 
 /**********          **********/
 /******** STRING FUNCS ********/
@@ -41,7 +42,7 @@ int main(int ac, char **av);
 void prompt(void);
 void sig_handle(int sig);
 void _EOF(char *buff);
-char **token(char *input, const char *del);
+char **token(char *name);
 void not_found(char *input, int line, char **av);
 int execute_com(char **av, char *input, int line, char **cmd);
 
