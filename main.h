@@ -33,6 +33,7 @@ int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
+char *_getenv(char *n);
 
 /**********          **********/
 /****** SHELL FUNCTIONS  *******/
@@ -45,5 +46,6 @@ void _EOF(char *buff);
 char **token(char *name);
 void not_found(char *input, int line, char **av);
 int execute_com(char **av, char *input, int line, char **cmd);
-
+char *get_command_dir(char *token, char *dir);
+int get_command(char **cmd);
 #endif

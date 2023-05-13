@@ -27,7 +27,7 @@ int execute_com(char **av, char *input, int line, char **cmd)
 	{
 		if (_strncmp(*av, "./", 2) != 0 && _strncmp(*av, "/", 1) != 0)
 		{
-
+			get_command(av);
 		}
 
 		if (execve(*av, av, environ) == -1)

@@ -32,3 +32,44 @@ char **token(char *name)
 	free(token2);
 	return (token1);
 }
+
+/**
+ * _getenv - gets the value Of enviroment variable
+ * @n: environment variable name
+ *
+ * Return: the value of the variable or NULL
+ */
+
+char *_getenv(char *n)
+{
+	int k, l, m;
+	size_t len_n, len_v;
+	char *v;
+
+	len_n = _strlen(n);
+	for (k = 0 ; environ[k]; k++)
+	{
+		if (_strncmp(n, environ[k], len_n) == 0)
+		{
+			len_v = _strlen(environ[k]) - len_n;
+			v = malloc(sizeof(char) * len_v);
+			if (!v)
+			{
+				free(v);
+				perror("unable to allocate memory");
+				return (NULL);
+			}
+
+			m = 0;
+			for (l = len_n + 1; environ[k][l]; l++, m++)
+			{
+				v[m] = environ[k][l];
+			}
+			v[m] = '\0';
+
+			return (v);
+		}
+	}
+
+	return (NULL);
+}
