@@ -33,6 +33,8 @@ int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
+char *_getenv(char *n);
+void *_realloc(void *ptr, unsigned int size_a, unsigned int size_b);
 
 /**********          **********/
 /****** SHELL FUNCTIONS  *******/
@@ -45,5 +47,9 @@ void _EOF(char *buff);
 char **token(char *name);
 void not_found(char *input, int line, char **av);
 int execute_com(char **av, char *input, int line, char **cmd);
+char *get_command_dir(char *token, char *dir);
+int get_command(char **cmd);
+ssize_t _getline(char **lptr, size_t *l, FILE *stream);
+void allocate_lptr(char **lptr, size_t *l, char *buff, size_t b);
 
 #endif
