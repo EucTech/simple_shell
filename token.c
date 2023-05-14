@@ -73,3 +73,47 @@ char *_getenv(char *n)
 
 	return (NULL);
 }
+
+/**
+ * _realloc - reallocates memory
+ * @ptr: pointer to previously allocated memory
+ * @size_a: first allocation in bytes
+ * @size_b: new allocted memory in bytes
+ *
+ * Return: ptr, NULL or a pointer to reallocated memory
+ */
+
+void *_realloc(void *ptr, unsigned int size_a, unsigned int size_b)
+{
+	unsigned int k;
+	void *d;
+	char *filler, *ptrc;
+
+	if (size_a == size_b)
+		return (ptr);
+	if (ptr == NULL)
+	{
+		d = malloc(size_b);
+		if (d == NULL)
+			return (NULL);
+		return (d);
+	}
+	if (size_b == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	ptrc = ptr;
+	d = malloc(sizeof(*ptrc) * size_b);
+	if (d == NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	filler = d;
+
+	for (k = 0; k < size_a && k < size_b; k++)
+		filler[k] = *ptrc++;
+	free(ptr);
+	return (d);
+}
