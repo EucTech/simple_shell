@@ -15,7 +15,6 @@ int main(int ac __attribute__((unused)), char **av)
 	int line = 0;
 
 	signal(SIGINT, sig_handle);
-
 	while (1)
 	{
 		line++;
@@ -28,8 +27,8 @@ int main(int ac __attribute__((unused)), char **av)
 			_EOF(pointer);
 			continue;
 		}
-		else if (*pointer == '\n')
-			free(pointer);
+		/*else if (*pointer == '\n')*/
+			/*free(pointer);*/
 		if (g_line == -1)
 		{
 			free(pointer);
@@ -37,15 +36,11 @@ int main(int ac __attribute__((unused)), char **av)
 		}
 		cmd = token(pointer);
 		if (_strcmp(cmd[0], "exit") == 0)
-		{
-			break;
-		}
+			my_exit(cmd, pointer, av, line);
 		execute_com(cmd, pointer, line, av);
 
-		/*for (k = 0; cmd[k] != NULL; k++)
-			free(cmd[k]);*/
 		free(cmd);
-		/*free(pointer);*/
+		free(pointer);
 		fflush(stdin);
 		pointer = NULL;
 		n = 0;

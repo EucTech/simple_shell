@@ -27,7 +27,7 @@ char **token(char *name)
 		token1[k] = token2;
 		token2 = strtok(NULL, "\n ");
 	}
-	/*free(token2);*/
+	/*free(token1);*/
 	token1[k] = NULL;
 	return (token1);
 }

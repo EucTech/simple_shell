@@ -20,7 +20,7 @@ char *get_command_dir(char *token, char *dir)
 		return (NULL);
 	}
 
-	memset(cmd, 0, len);
+	_memset(cmd, 0, len);
 
 	cmd = _strcat(cmd, dir);
 	cmd = _strcat(cmd, "/");

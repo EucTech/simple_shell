@@ -70,3 +70,38 @@ char *_strcat(char *dest, char *src)
 	*dest = '\0';
 	return (n);
 }
+
+
+/**
+ * _memset - This is a function that fills memory with a constant byte
+ * @s: pointed destination
+ * @b: constant byte
+ * @n: number of bytes
+ * Return: destination
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		s[i] = b;
+
+	return (s);
+}
+
+/**
+ * _memcpy - This is a function that copies memory area
+ * @dest: the destination
+ * @src: source
+ * @n: number of byte
+ * Return: destination
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		dest[i] = src[i];
+
+	return (dest);
+}
