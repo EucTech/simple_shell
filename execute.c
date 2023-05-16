@@ -29,7 +29,6 @@ int execute_com(char **av, char *input, int line, char **cmd)
 		{
 			get_command(av);
 		}
-
 		if (execve(*av, av, environ) == -1)
 		{
 			not_found(av[0], line, cmd);

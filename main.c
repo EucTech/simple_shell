@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * main - This is a function that takes command line arguments
  * and execute it
@@ -13,7 +12,7 @@ int main(int ac __attribute__((unused)), char **av)
 	ssize_t g_line;
 	char *pointer = NULL, **cmd = NULL;
 	size_t n = 0;
-	int line = 0, k;
+	int line = 0;
 
 	signal(SIGINT, sig_handle);
 
@@ -37,12 +36,19 @@ int main(int ac __attribute__((unused)), char **av)
 			return (EXIT_FAILURE);
 		}
 		cmd = token(pointer);
+		if (_strcmp(cmd[0], "exit") == 0)
+		{
+			break;
+		}
 		execute_com(cmd, pointer, line, av);
 
-		for (k = 0; cmd[k] != NULL; k++)
-			free(cmd[k]);
+		/*for (k = 0; cmd[k] != NULL; k++)
+			free(cmd[k]);*/
 		free(cmd);
-		pointer = NULL, n = 0;
+		/*free(pointer);*/
+		fflush(stdin);
+		pointer = NULL;
+		n = 0;
 	}
 	return (0);
 }

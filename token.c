@@ -15,7 +15,7 @@ char **token(char *name)
 		return (NULL);
 
 	token1 = malloc(sizeof(char *) * buf);
-	if (token1 == NULL)
+	if (!token1)
 	{
 		perror("hsh");
 		return (NULL);
@@ -27,9 +27,8 @@ char **token(char *name)
 		token1[k] = token2;
 		token2 = strtok(NULL, "\n ");
 	}
-
+	/*free(token2);*/
 	token1[k] = NULL;
-	free(token2);
 	return (token1);
 }
 
@@ -70,6 +69,5 @@ char *_getenv(char *n)
 			return (v);
 		}
 	}
-
 	return (NULL);
 }

@@ -50,8 +50,8 @@ int get_command(char **cmd)
 		if (stat(c_path, &buff) == 0)
 		{
 			*cmd = _strdup(c_path);
-			free(c_path);
 			free(path);
+			free(c_path);
 			return (0);
 		}
 		free(c_path);
@@ -59,5 +59,5 @@ int get_command(char **cmd)
 	}
 	free(path);
 
-	return (1);
+	return (0);
 }
