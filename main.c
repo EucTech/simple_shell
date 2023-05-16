@@ -21,7 +21,7 @@ int main(int ac __attribute__((unused)), char **av)
 		line++;
 		if (isatty(STDIN_FILENO))
 			prompt();
-		g_line = getline(&pointer, &n, stdin);
+		g_line = _getline(&pointer, &n, stdin);
 
 		if (g_line == EOF)
 		{
