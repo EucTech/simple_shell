@@ -115,3 +115,23 @@ void *_realloc(void *ptr, unsigned int size_a, unsigned int size_b)
 	free(ptr);
 	return (d);
 }
+
+/**
+ * is_delim - checks for a delimeter
+ * @str: pointer to string
+ * @ch: input character
+ *
+ * Return: 1 on success, 0 otherwise
+ */
+
+unsigned int is_delim(char ch, const char *str)
+{
+	unsigned int k;
+
+	for (k = 0; str[k] != '\0'; k++)
+	{
+		if (ch == str[k])
+			return (1);
+	}
+	return (0);
+}
