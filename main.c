@@ -12,7 +12,7 @@ int main(int ac __attribute__((unused)), char **av)
 	ssize_t g_line;
 	char *pointer = NULL, **cmd = NULL;
 	size_t n = 0;
-	int line = 0;
+	int line = 0, ex = 0;
 
 	signal(SIGINT, sig_handle);
 	while (1)
@@ -37,6 +37,13 @@ int main(int ac __attribute__((unused)), char **av)
 		cmd = token(pointer);
 		if (_strcmp(cmd[0], "exit") == 0)
 			my_exit(cmd, pointer, av, line);
+		else if (all_built_in(cmd) == 0)
+		{
+			ex = my_builtin(cmd, ex);
+			free(cmd);
+			free(pointer);
+			continue;
+		}
 		execute_com(cmd, pointer, line, av);
 
 		free(cmd);

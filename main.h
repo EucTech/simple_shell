@@ -11,6 +11,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <stddef.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
@@ -21,6 +22,24 @@ extern char **environ;
 /********** MACRO **********/
 #define PRINT(c) (write(STDOUT_FILENO, c, _strlen(c)))
 #define BUFF 1024
+
+
+/**********          **********/
+/****** STRUCT BUILT_IN *******/
+/**********          *********/
+
+/**
+ * struct han_builtin - This is a function that that will handle the builtins
+ * @exe: This is the command
+ * @check: This is a for execution
+ */
+
+typedef struct han_builtin
+{
+	char *exe;
+	int (*check)(char **count, int sta);
+} my_bit;
+
 
 /**********          **********/
 /******** STRING FUNCS ********/
@@ -57,5 +76,7 @@ ssize_t _getline(char **lptr, size_t *l, FILE *stream);
 void allocate_lptr(char **lptr, size_t *l, char *buff, size_t b);
 void my_exit(char **cmd, char *pointer, char **av, int line);
 void print_er(char **av, int line, char **cmd);
-
+int my_builtin(char **cmd, int sta);
+int all_built_in(char **cmd);
+int print_env(char **cmd, int sta);
 #endif
