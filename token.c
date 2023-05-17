@@ -21,11 +21,11 @@ char **token(char *name)
 		return (NULL);
 	}
 
-	token2 = strtok(name, "\n ");
+	token2 = _strtok(name, "\n ");
 	for (k = 0; token2; k++)
 	{
 		token1[k] = token2;
-		token2 = strtok(NULL, "\n ");
+		token2 = _strtok(NULL, "\n ");
 	}
 	/*free(token1);*/
 	token1[k] = NULL;

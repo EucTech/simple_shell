@@ -21,14 +21,11 @@ int main(int ac __attribute__((unused)), char **av)
 		if (isatty(STDIN_FILENO))
 			prompt();
 		g_line = _getline(&pointer, &n, stdin);
-
 		if (g_line == EOF)
 		{
 			_EOF(pointer);
 			continue;
 		}
-		/*else if (*pointer == '\n')*/
-			/*free(pointer);*/
 		if (g_line == -1)
 		{
 			free(pointer);
@@ -45,7 +42,6 @@ int main(int ac __attribute__((unused)), char **av)
 			continue;
 		}
 		execute_com(cmd, pointer, line, av);
-
 		free(cmd);
 		free(pointer);
 		fflush(stdin);
