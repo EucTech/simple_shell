@@ -43,7 +43,7 @@ int get_command(char **cmd)
 	char *path, *v, *c_path;
 
 	path = _getenv("PATH");
-	v = strtok(path, ":");
+	v = _strtok(path, ":");
 	while (v != NULL)
 	{
 		c_path = get_command_dir(*cmd, v);
@@ -55,7 +55,7 @@ int get_command(char **cmd)
 			return (0);
 		}
 		free(c_path);
-		v = strtok(NULL, ":");
+		v = _strtok(NULL, ":");
 	}
 	free(path);
 

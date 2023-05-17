@@ -35,6 +35,8 @@ char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
 char *_getenv(char *n);
 void *_realloc(void *ptr, unsigned int size_a, unsigned int size_b);
+char *_strtok(char *str, const char *d);
+unsigned int is_delim(char ch, const char *str);
 
 /**********          **********/
 /****** SHELL FUNCTIONS  *******/
