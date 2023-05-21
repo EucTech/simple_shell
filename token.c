@@ -15,17 +15,19 @@ char **token(char *name)
 		return (NULL);
 
 	token1 = malloc(sizeof(char *) * buf);
-	if (!token1)
+	if (token1 == NULL)
 	{
 		perror("hsh");
 		return (NULL);
 	}
 
 	token2 = _strtok(name, "\n ");
-	for (k = 0; token2; k++)
+	k = 0;
+	while (token2)
 	{
 		token1[k] = token2;
 		token2 = _strtok(NULL, "\n ");
+		k++;
 	}
 	/*free(token1);*/
 	token1[k] = NULL;
@@ -128,10 +130,13 @@ unsigned int is_delim(char ch, const char *str)
 {
 	unsigned int k;
 
-	for (k = 0; str[k] != '\0'; k++)
+	k = 0;
+	while (str[k] != '\0')
 	{
 		if (ch == str[k])
 			return (1);
+
+		k++;
 	}
 	return (0);
 }

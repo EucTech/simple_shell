@@ -54,7 +54,7 @@ void print_er(char **av, int line, char **cmd)
 	PRINT(num);
 	PRINT(": ");
 	PRINT(cmd[0]);
-	PRINT(": Illegal number: ");
+	PRINT(": Invalid number: ");
 	PRINT(cmd[1]);
 	PRINT("\n");
 	free(num);

@@ -68,21 +68,15 @@ void allocate_lptr(char **lptr, size_t *l, char *buff, size_t b)
 	if (*lptr == NULL)
 	{
 		if (b > 120)
-		{
 			*l = b;
-		}
 		else
-		{
 			*l = 120;
-		}
 		*lptr = buff;
 	}
 	else if (*l < b)
 	{
 		if (b > 120)
-		{
 			*l = b;
-		}
 		else
 		{
 			*l = 120;

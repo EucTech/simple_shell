@@ -15,6 +15,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <limits.h>
+#include <dirent.h>
+
 
 /****** ENVIRONMENT *******/
 extern char **environ;
@@ -78,7 +81,8 @@ ssize_t _getline(char **lptr, size_t *l, FILE *stream);
 void allocate_lptr(char **lptr, size_t *l, char *buff, size_t b);
 void my_exit(char **cmd, char *pointer, char **av, int line);
 void print_er(char **av, int line, char **cmd);
-int my_builtin(char **cmd, int sta);
-int all_built_in(char **cmd);
-int print_env(char **cmd, int sta);
+int my_builtin(char **cmd);
+void print_env(void);
+int change_dir(char **cmd);
+
 #endif

@@ -16,6 +16,9 @@ int execute_com(char **av, char *input, int line, char **cmd)
 	if (*av == NULL)
 		return (-1);
 
+	if (_strcmp(av[0], "cd") == 0)
+		return (change_dir(av));
+
 	pid = fork();
 	if (pid == -1)
 	{
@@ -26,17 +29,16 @@ int execute_com(char **av, char *input, int line, char **cmd)
 	if (pid == 0)
 	{
 		if (_strncmp(*av, "./", 2) != 0 && _strncmp(*av, "/", 1) != 0)
-		{
 			get_command(av);
-		}
+
 		if (execve(*av, av, environ) == -1)
 		{
 			not_found(av[0], line, cmd);
 			free(input);
 			free(av);
-			exit(EXIT_FAILURE);
+			exit(1);
 		}
-		return (EXIT_SUCCESS);
+		return (0);
 	}
 	wait(&status);
 	return (0);

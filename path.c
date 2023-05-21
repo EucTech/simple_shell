@@ -15,7 +15,7 @@ char *get_command_dir(char *token, char *dir)
 
 	len = _strlen(dir) + _strlen(token) + 2;
 	cmd = malloc(sizeof(char) * len);
-	if (cmd == NULL)
+	if (!cmd)
 	{
 		return (NULL);
 	}
