@@ -54,9 +54,7 @@ int count_num(int n)
 		c = n * -1;
 	}
 	else
-	{
 		c = n;
-	}
 	while (c > 9)
 	{
 		count++;
@@ -92,16 +90,18 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-#include "main.h"
 /**
- * _strcmp - write a function that compares two strings
- * @s1: string
- * @s2: string
- * Return: Always
+ * _strcmp - This is a function that compares two strings
+ * @s1: This is the first
+ * @s2: second string
+ * Return: 0 Always
  */
 int _strcmp(char *s1, char *s2)
 {
 	int i;
+
+	if (s1 == NULL || s2 == NULL)
+		return (-1);
 
 	for (i = 0; s1[i] != '\0' && s2[i] != '\0'; i++)
 	{

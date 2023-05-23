@@ -9,7 +9,7 @@ void prompt(void)
 {
 	char *prompt = "UK~$ ";
 
-	write(STDIN_FILENO, prompt, 5);
+	write(STDOUT_FILENO, prompt, 5);
 }
 
 
@@ -30,7 +30,7 @@ void _EOF(char *buff)
 	if (isatty(STDIN_FILENO))
 		write(STDOUT_FILENO, "\n", 1);
 
-	free(buff);
+	/*free(buff);*/
 	exit(EXIT_SUCCESS);
 }
 

@@ -15,12 +15,12 @@ char *get_command_dir(char *token, char *dir)
 
 	len = _strlen(dir) + _strlen(token) + 2;
 	cmd = malloc(sizeof(char) * len);
-	if (cmd == NULL)
+	if (!cmd)
 	{
 		return (NULL);
 	}
 
-	memset(cmd, 0, len);
+	_memset(cmd, 0, len);
 
 	cmd = _strcat(cmd, dir);
 	cmd = _strcat(cmd, "/");
@@ -43,21 +43,21 @@ int get_command(char **cmd)
 	char *path, *v, *c_path;
 
 	path = _getenv("PATH");
-	v = strtok(path, ":");
+	v = _strtok(path, ":");
 	while (v != NULL)
 	{
 		c_path = get_command_dir(*cmd, v);
 		if (stat(c_path, &buff) == 0)
 		{
 			*cmd = _strdup(c_path);
-			free(c_path);
 			free(path);
+			free(c_path);
 			return (0);
 		}
 		free(c_path);
-		v = strtok(NULL, ":");
+		v = _strtok(NULL, ":");
 	}
 	free(path);
 
-	return (1);
+	return (0);
 }

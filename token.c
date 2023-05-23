@@ -21,15 +21,16 @@ char **token(char *name)
 		return (NULL);
 	}
 
-	token2 = strtok(name, "\n ");
-	for (k = 0; token2; k++)
+	token2 = _strtok(name, "\n ");
+	k = 0;
+	while (token2)
 	{
 		token1[k] = token2;
-		token2 = strtok(NULL, "\n ");
+		token2 = _strtok(NULL, "\n ");
+		k++;
 	}
-
+	/*free(token1);*/
 	token1[k] = NULL;
-	free(token2);
 	return (token1);
 }
 
@@ -70,7 +71,6 @@ char *_getenv(char *n)
 			return (v);
 		}
 	}
-
 	return (NULL);
 }
 
@@ -116,4 +116,27 @@ void *_realloc(void *ptr, unsigned int size_a, unsigned int size_b)
 		filler[k] = *ptrc++;
 	free(ptr);
 	return (d);
+}
+
+/**
+ * is_delim - checks for a delimeter
+ * @str: pointer to string
+ * @ch: input character
+ *
+ * Return: 1 on success, 0 otherwise
+ */
+
+unsigned int is_delim(char ch, const char *str)
+{
+	unsigned int k;
+
+	k = 0;
+	while (str[k] != '\0')
+	{
+		if (ch == str[k])
+			return (1);
+
+		k++;
+	}
+	return (0);
 }
