@@ -14,10 +14,10 @@ int my_builtin(char **cmd)
 
 	if (_strcmp(cmd[0], "cd") == 0)
 		change_dir(cmd);
-	if (_strcmp(cmd[0], "setenv") == 0)
-		_setenv(cmd[1], cmd[2], 1);
-	if (_strcmp(cmd[0], "unsetenv") == 0)
-		_unsetenv(cmd[1], cmd[2], 1);
+	/*if (_strcmp(cmd[0], "setenv") == 0)*/
+		/*_setenv(cmd[1], cmd[2], 1);*/
+	/*if (_strcmp(cmd[0], "unsetenv") == 0)*/
+		/*_unsetenv(cmd[1], cmd[2], 1);*/
 	return (0);
 }
 
@@ -53,8 +53,8 @@ int change_dir(char **cmd)
 
 	if (getcwd(chan, sizeof(cmd)) != NULL)
 	{
-		setenv("OLDPWD", print, 1);
-		setenv("PWD", chan, 1);
+		/*setenv("OLDPWD", print, 1);*/
+		/*setenv("PWD", chan, 1);*/
 	}
 	return (0);
 }

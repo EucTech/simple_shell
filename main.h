@@ -25,7 +25,7 @@ extern char **environ;
 /********** MACRO **********/
 #define PRINT(c) (write(STDOUT_FILENO, c, _strlen(c)))
 #define BUFF 1024
-
+#define MAX_COMMAND 100
 
 /**********          **********/
 /****** STRUCT BUILT_IN *******/
@@ -84,5 +84,6 @@ void print_er(char **av, int line, char **cmd);
 int my_builtin(char **cmd);
 void print_env(void);
 int change_dir(char **cmd);
+char *token2(char *pointer, size_t *n);
 
 #endif
